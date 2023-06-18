@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Coronatime API
+  description: Here goes description
+  version: 0.1.9
+
+servers:
+  - url: http://laravel.loc/api
+    description: local server
+
+paths:
+  /news:
+    get:
+      summary: Returns a list of news.
+      responses:
+        '200':
+          description: A JSON array
+  /news/{id}:
+    get:
+      summary: Returns a one of news.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A JSON array
