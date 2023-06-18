@@ -14,6 +14,10 @@ class NewsController extends Controller
 
     public function show($id)
     {
-        return News::with(['category', 'translate'])->find($id);
+        $news = News::with(['category', 'translate'])->find($id);
+        if(is_null($news)){
+            abort(404);
+        }
+        return $news;
     }
 }
